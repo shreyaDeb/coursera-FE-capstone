@@ -80,7 +80,6 @@ const BookingForm = ({ availableTimes, updateTimes, dispatch, submitForm, onBook
         // Reset available times to initial state
         dispatch({ type: 'INITIALIZE_TIMES' });
       }
-      // Note: No else needed here since submitForm handles the error case
     } catch (error) {
       console.error('Error submitting booking:', error);
       alert('Sorry, there was an error submitting your reservation. Please try again.');
@@ -89,7 +88,13 @@ const BookingForm = ({ availableTimes, updateTimes, dispatch, submitForm, onBook
     }
   };
 
-  const isFormValid = formData.date && formData.time && formData.guests;
+  // Enhanced validation function
+  const isFormValid = () => {
+    return formData.date && 
+           formData.time && 
+           formData.guests >= 1 && 
+           formData.guests <= 10;
+  };
 
   return (
     <div>
@@ -187,14 +192,14 @@ const BookingForm = ({ availableTimes, updateTimes, dispatch, submitForm, onBook
 
         <button
           type="submit"
-          disabled={!isFormValid || isSubmitting}
+          disabled={!isFormValid() || isSubmitting}
           style={{
             padding: '12px',
-            backgroundColor: (!isFormValid || isSubmitting) ? '#cccccc' : '#f4ce14',
-            color: (!isFormValid || isSubmitting) ? '#666' : '#333',
+            backgroundColor: (!isFormValid() || isSubmitting) ? '#cccccc' : '#f4ce14',
+            color: (!isFormValid() || isSubmitting) ? '#666' : '#333',
             border: 'none',
             borderRadius: '4px',
-            cursor: (!isFormValid || isSubmitting) ? 'not-allowed' : 'pointer',
+            cursor: (!isFormValid() || isSubmitting) ? 'not-allowed' : 'pointer',
             fontWeight: 'bold'
           }}
         >
