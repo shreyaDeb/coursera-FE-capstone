@@ -1,28 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <!-- Step 1: Description meta tag -->
-  <meta name="description" content="Little Lemon is a charming neighborhood bistro serving locally-sourced meals and classic cocktails in a lively, casual environment." />
-
-  <!-- Step 2: Open Graph title -->
+  <meta name="description"
+    content="Little Lemon is a charming neighborhood bistro serving locally-sourced meals and classic cocktails in a lively, casual environment." />
   <meta property="og:title" content="Little Lemon - Neighborhood Bistro" />
-
-  <!-- Step 3: Open Graph description -->
-  <meta property="og:description" content="Enjoy delicious dishes, daily specials, and classic cocktails at Little Lemon, your friendly local bistro." />
-
-  <!-- Step 4: Open Graph image (relative path) -->
+  <meta property="og:description"
+    content="Enjoy delicious dishes, daily specials, and classic cocktails at Little Lemon, your friendly local bistro." />
   <meta property="og:image" content="../src/images/restaurant.png" />
-
-  <!-- Favicon / icon -->
   <link rel="icon" href="./logo.png" type="image/x-icon" />
-
   <title>Little Lemon</title>
 </head>
+
 <body>
   <div id="root"></div>
+
+  <!-- Keep the external URL as per instructions -->
+  <script src="https://raw.githubusercontent.com/courseraap/capstone/main/api.js"></script>
+
+  <!-- In index.html, update the fallback script -->
+  <script>
+    setTimeout(() => {
+      if (typeof window.fetchAPI === 'undefined' || typeof window.submitAPI === 'undefined') {
+        console.log('External API not available, providing fallback implementation');
+
+        const seededRandom = function (seed) {
+          var m = 2 ** 35 - 31;
+          var a = 185852;
+          var s = seed % m;
+          return function () {
+            return (s = s * a % m) / m;
+          };
+        }
+
+        window.fetchAPI = function (date) {
+          let result = [];
+          let random = seededRandom(date.getDate());
+
+          for (let i = 17; i <= 23; i++) {
+            if (random() < 0.5) {
+              result.push(i + ':00');
+            }
+            if (random() < 0.5) {
+              result.push(i + ':30');
+            }
+          }
+          return result;
+        };
+
+        window.submitAPI = function (formData) {
+          return true;
+        };
+
+        console.log('✅ Fallback API functions provided');
+      } else {
+        console.log('✅ External API loaded successfully');
+      }
+    }, 100);
+  </script>
 </body>
+
 </html>

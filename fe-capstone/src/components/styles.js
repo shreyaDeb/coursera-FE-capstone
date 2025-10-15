@@ -1,0 +1,92 @@
+const styles = {
+    pageContainer: {
+        minHeight: "100vh",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        background: "linear-gradient(135deg, #fff5f5, #ffe9e0)",
+        fontFamily: "Poppins, sans-serif",
+        padding: "2rem",
+    },
+    card: {
+        backgroundColor: "#fff",
+        padding: "2rem 2.5rem",
+        borderRadius: "16px",
+        boxShadow: "0 8px 20px rgba(0,0,0,0.1)",
+        width: "100%",
+        maxWidth: "400px",
+        textAlign: "center",
+        transition: "0.3s ease",
+    },
+    title: {
+        marginBottom: "1.5rem",
+        color: "#333",
+        fontSize: "1.8rem",
+    },
+    form: {
+        display: "flex",
+        flexDirection: "column",
+    },
+    field: {
+        marginBottom: "1rem",
+        textAlign: "left",
+    },
+    label: {
+        fontWeight: "600",
+        color: "#444",
+        fontSize: "0.95rem",
+    },
+    input: {
+        marginTop: "0.4rem",
+        padding: "0.6rem",
+        borderRadius: "8px",
+        border: "1px solid #ccc",
+        width: "100%",
+        fontSize: "0.95rem",
+        outline: "none",
+    },
+    errorText: {
+        color: "red",
+        fontSize: "0.8rem",
+        marginTop: "0.3rem",
+    },
+    button: {
+        padding: "0.75rem",
+        borderRadius: "8px",
+        border: "none",
+        backgroundColor: "#ff4500",
+        color: "#fff",
+        fontWeight: "600",
+        cursor: "pointer",
+        marginTop: "0.5rem",
+        fontSize: "1rem",
+    },
+    confirmationCard: {
+        textAlign: "left",
+        color: "#333",
+    },
+    successTitle: {
+        color: "#28a745",
+        textAlign: "center",
+        marginBottom: "1rem",
+        fontSize: "1.4rem",
+    },
+    confirmMsg: {
+        color: "#ff4500",
+        marginTop: "1rem",
+        textAlign: "center",
+    },
+    resetButton: {
+        marginTop: "1.5rem",
+        backgroundColor: "#f2f2f2",
+        border: "none",
+        borderRadius: "8px",
+        padding: "0.6rem 1rem",
+        cursor: "pointer",
+        fontWeight: "500",
+        color: "#333",
+        transition: "0.2s",
+    },
+};
+
+export default styles
